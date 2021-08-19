@@ -7,6 +7,7 @@ let resultlist = document.querySelector('ul');
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
+let canvas = document.getElementById('myChart');
 let views = 0;
 let clicks = 0;
 let maxclicks = 25;
@@ -39,6 +40,7 @@ new Buss('tauntaun',);
 new Buss('unicorn',);
 new Buss('water-can',);
 new Buss('wine-glass',);
+canvas.style.backgroundColor = "transparent";
 
 function random(){
     return Math.floor(Math.random() * (theBuss.length));
@@ -103,6 +105,7 @@ function bussclicker(event){
     renderBuss2();
     if (clicks === maxclicks){
         myContainer.removeEventListener('click', bussclicker);
+        canvas.style.backgroundColor = "white";
         rendtable();
     } 
 }
@@ -140,16 +143,20 @@ let chardata = {
       datasets: [{
         label: 'Views',
         data: busviews,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
+        backgroundColor: 'green',
+        borderColor: 'green',
+        hoverBorderColor: 'black',
+        hoverBorderRadius: 20, 
+        borderWidth: 2,
       },
       {
         label: 'Clicks',
         data: busclicks,
-        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-        borderColor: 'rgba(255, 206, 86, 1)',
-        borderWidth: 1
+        backgroundColor: 'yellow',
+        borderColor: 'yellow',
+        hoverBorderColor: 'black',
+        hoverBorderRadius: 20, 
+        borderWidth: 2
       }
       ]
     },
