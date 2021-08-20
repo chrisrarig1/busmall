@@ -66,22 +66,11 @@ button{
     font-size: 25px;
     cursor: pointer;
 }
-article{
-    width: auto;
-    padding: 2rem;
+canvas{
     
-
-}
-ul{
-    list-style-position: inside;
-}
-
-li{
-    padding-top: 0.5rem;
-    font-size: 20px;
-    margin-left: 0.5rem ;
-    list-style-type: circle;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
     padding: 1rem;
-    background-color: darkseagreen;
-    color: ivory;
+    background-color: cornsilk;
 }
