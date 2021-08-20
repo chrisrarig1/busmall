@@ -1,6 +1,6 @@
 'use strict';
 
-let theBuss = [];
+let theBus = [];
 
 let myContainer = document.querySelector('section');
 let resultlist = document.querySelector('ul');
@@ -13,61 +13,61 @@ let clicks = 0;
 let maxclicks = 25;
 
 
-function Buss(name,fileExt = 'jpg'){
+function Bus(name,fileExt = 'jpg'){
     this.name = name;
     this.src = `images/${name}.${fileExt}`;
     this.views = 0;
     this.clicks = 0;
-    theBuss.push(this);
+    theBus.push(this);
 }
 
-new Buss('bag',);
-new Buss('banana',);
-new Buss('bathroom',);
-new Buss('boots',);
-new Buss('breakfast',);
-new Buss('bubblegum',);
-new Buss('chair',);
-new Buss('cthulhu',);
-new Buss('dog-duck',);
-new Buss('dragon',);
-new Buss('pen',);
-new Buss('pet-sweep',);
-new Buss('scissors',);
-new Buss('shark',);
-new Buss('sweep','png');
-new Buss('tauntaun',);
-new Buss('unicorn',);
-new Buss('water-can',);
-new Buss('wine-glass',);
+new Bus('bag',);
+new Bus('banana',);
+new Bus('bathroom',);
+new Bus('boots',);
+new Bus('breakfast',);
+new Bus('bubblegum',);
+new Bus('chair',);
+new Bus('cthulhu',);
+new Bus('dog-duck',);
+new Bus('dragon',);
+new Bus('pen',);
+new Bus('pet-sweep',);
+new Bus('scissors',);
+new Bus('shark',);
+new Bus('sweep','png');
+new Bus('tauntaun',);
+new Bus('unicorn',);
+new Bus('water-can',);
+new Bus('wine-glass',);
 canvas.style.backgroundColor = "transparent";
 
 function random(){
-    return Math.floor(Math.random() * (theBuss.length));
+    return Math.floor(Math.random() * (theBus.length));
 }
 
-let bussnumbers2 = [];
-function renderBuss2(){
-    while(bussnumbers2.length < 6){
-        let busnum = theBuss[random()];
-        if (!bussnumbers2.includes(busnum)){
-            bussnumbers2.push(busnum);
+let busnumbers2 = [];
+function renderBus2(){
+    while(busnumbers2.length < 6){
+        let busnum = theBus[random()];
+        if (!busnumbers2.includes(busnum)){
+            busnumbers2.push(busnum);
         }
     }
-    bussnumbers2.shift();
-    bussnumbers2.shift();
-    bussnumbers2.shift();
-    image1.src= bussnumbers2[0].src;
-    image1.alt = bussnumbers2[0].name;
-    image2.src= bussnumbers2[1].src;
-    image2.alt = bussnumbers2[1].name;
-    image3.src= bussnumbers2[2].src;
-    image3.alt = bussnumbers2[2].name;
-    bussnumbers2[0].views++;
-    bussnumbers2[1].views++;
-    bussnumbers2[2].views++;
+    busnumbers2.shift();
+    busnumbers2.shift();
+    busnumbers2.shift();
+    image1.src= busnumbers2[0].src;
+    image1.alt = busnumbers2[0].name;
+    image2.src= busnumbers2[1].src;
+    image2.alt = busnumbers2[1].name;
+    image3.src= busnumbers2[2].src;
+    image3.alt = busnumbers2[2].name;
+    busnumbers2[0].views++;
+    busnumbers2[1].views++;
+    busnumbers2[2].views++;
 }
-renderBuss2();
+renderBus2();
 
 
 
@@ -90,26 +90,26 @@ renderBuss2();
 
 
 
-function bussclicker(event){
+function busclicker(event){
     event.preventDefault();
     if (event.target === myContainer){
         alert('please select am item');
     }
     clicks++;
-    let clickedBuss = event.target.alt;
-    for (let i = 0; i < theBuss.length; i++){
-        if (clickedBuss === theBuss[i].name){
-            theBuss[i].clicks++;
+    let clickedBus = event.target.alt;
+    for (let i = 0; i < theBus.length; i++){
+        if (clickedBus === theBus[i].name){
+            theBus[i].clicks++;
         }
     }
-    renderBuss2();
+    renderBus2();
     if (clicks === maxclicks){
-        myContainer.removeEventListener('click', bussclicker);
+        myContainer.removeEventListener('click', busclicker);
         canvas.style.backgroundColor = "white";
         rendtable();
     } 
 }
-console.log(theBuss);
+console.log(theBus);
 
 
 
@@ -131,10 +131,10 @@ function rendtable(){
     let busnames = [];
     let busclicks = [];
     let busviews = [];
-    for(let i = 0; i < theBuss.length; i++){
-        busviews.push(theBuss[i].views);
-        busclicks.push(theBuss[i].clicks);
-        busnames.push(theBuss[i].name); 
+    for(let i = 0; i < theBus.length; i++){
+        busviews.push(theBus[i].views);
+        busclicks.push(theBus[i].clicks);
+        busnames.push(theBus[i].name); 
     };
 let chardata = {
     type: 'bar',
@@ -172,10 +172,10 @@ let ctx = document.getElementById('myChart').getContext('2d');
 let myChart = new Chart(ctx, chardata);
 };
 
-myContainer.addEventListener('click', bussclicker);
+myContainer.addEventListener('click', busclicker);
 // myButton.addEventListener('click', results);
 
 
 
 
-renderBuss2();
+renderBus2();
