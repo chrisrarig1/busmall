@@ -54,6 +54,7 @@ function renderBus2(){
             busnumbers2.push(busnum);
         }
     }
+    console.log(busnumbers2);
     busnumbers2.shift();
     busnumbers2.shift();
     busnumbers2.shift();
@@ -66,6 +67,7 @@ function renderBus2(){
     busnumbers2[0].views++;
     busnumbers2[1].views++;
     busnumbers2[2].views++;
+    console.log(busnumbers2);
 }
 renderBus2();
 
@@ -109,7 +111,7 @@ function busclicker(event){
         rendtable();
     } 
 }
-console.log(theBus);
+// console.log(theBus);
 
 
 
