@@ -2,6 +2,7 @@
 
 let theBus = [];
 
+
 let myContainer = document.querySelector('section');
 let resultlist = document.querySelector('ul');
 let image1 = document.querySelector('section img:first-child');
@@ -21,7 +22,7 @@ function Bus(name,fileExt = 'jpg'){
     theBus.push(this);
 }
 
-new Bus('bag',);
+new Bus('bag', );
 new Bus('banana',);
 new Bus('bathroom',);
 new Bus('boots',);
@@ -106,12 +107,30 @@ function busclicker(event){
     if (clicks === maxclicks){
         myContainer.removeEventListener('click', busclicker);
         canvas.style.backgroundColor = "white";
+        storebus();
         rendtable();
     } 
 }
 console.log(theBus);
 
+function storebus(){
+  let stringItem = JSON.stringify(theBus);
+    localStorage.setItem('items', stringItem);
+}
+  
 
+
+//reinstanciation -turn the plain old JS object into an instance of a constructor
+function getbus(){
+  let buschoice = JSON.parse(localStorage.getItem('items'));
+ if(buschoice){
+     theBus=buschoice;
+   }
+   console.log(theBus);
+   
+ }
+ 
+ 
 
 
 // function results(event){
@@ -177,5 +196,6 @@ myContainer.addEventListener('click', busclicker);
 
 
 
+getbus();
 
 renderBus2();
