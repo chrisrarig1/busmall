@@ -13,7 +13,7 @@ let views = 0;
 let clicks = 0;
 let maxclicks = 25;
 
-
+//Constructor
 function Bus(name,fileExt = 'jpg'){
     this.name = name;
     this.src = `images/${name}.${fileExt}`;
@@ -43,10 +43,12 @@ new Bus('water-can',);
 new Bus('wine-glass',);
 canvas.style.backgroundColor = "transparent";
 
+// Generate a random number 
 function random(){
     return Math.floor(Math.random() * (theBus.length));
 }
 
+//Generate images
 let busnumbers2 = [];
 function renderBus2(){
     while(busnumbers2.length < 6){
@@ -72,25 +74,6 @@ renderBus2();
 
 
 
-// function renderBuss(){
-//     let buss1 = theBuss[random()];
-//     let buss2 = theBuss[random()];
-//     let buss3 = theBuss[random()];
-//     let bussnumbers = [];
- 
-//     while (buss1 === buss2){
-//         buss2=theBuss[random()];
-//     }
-//     bussnumbers.push(buss1,buss2)
-//     while (bussnumbers.includes(buss3) === true){
-//         buss3 = theBuss[random()];
-//     }
-    // bussnumbers.push(buss3);
-    // console.log(bussnumbers)
-
-
-
-
 function busclicker(event){
     event.preventDefault();
     if (event.target === myContainer){
@@ -113,6 +96,7 @@ function busclicker(event){
 }
 console.log(theBus);
 
+//Store in local storage
 function storebus(){
   let stringItem = JSON.stringify(theBus);
     localStorage.setItem('items', stringItem);
@@ -129,23 +113,10 @@ function getbus(){
    console.log(theBus);
    
  }
- 
- 
-
-
-// function results(event){
-//     event.preventDefault();
-//     for(let i = 0; i < theBuss.length; i++){
-//         let textcontent = `${theBuss[i].name} had ${theBuss[i].clicks} votes and was seen ${theBuss[i].views} times`;
-//         let newel = document.createElement('li')
-//         newel.textContent = textcontent;
-//         resultlist.appendChild(newel);
-//         }
-        
-//     }
 
 
 
+// Render Table
 function rendtable(){
     let busnames = [];
     let busclicks = [];
@@ -192,7 +163,7 @@ let myChart = new Chart(ctx, chardata);
 };
 
 myContainer.addEventListener('click', busclicker);
-// myButton.addEventListener('click', results);
+
 
 
 
